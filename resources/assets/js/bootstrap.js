@@ -44,3 +44,7 @@ window.axios.defaults.headers.common = {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+window.VueRouter = require('vue-router');
+window.Vuex = require('vuex');
+window.El = require('element-ui');
