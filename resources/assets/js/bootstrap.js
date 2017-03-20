@@ -47,4 +47,4 @@ window.axios.defaults.headers.common = {
 
 window.VueRouter = require('vue-router');
 window.Vuex = require('vuex');
-window.El = require('element-ui');
+//window.El = require('element-ui');

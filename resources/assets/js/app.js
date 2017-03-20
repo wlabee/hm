@@ -15,6 +15,14 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
+// const app = new Vue({
+//     el: '#app'
+// });
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
+Vue.use(ElementUI);
+
 const app = new Vue({
     el: '#app'
 });
