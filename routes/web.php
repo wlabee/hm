@@ -12,17 +12,23 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('admin/index', ['as' => 'admin.index', 'middleware' => ['auth','menu'], 'uses'=>'Admin\\IndexController@index']);
+Route::get('admin', function () {
+    return redirect('/admin/index');
+});
+Route::get('admin/index', ['as' => 'admin.index', 'middleware' => ['auth.admin','menu'], 'uses'=>'Admin\\IndexController@index']);
 
-$this->group(['namespace' => 'Admin','prefix' => '/admin',], function () {
+Route::group(['namespace' => 'Admin','prefix' => '/admin',], function () {
     // Route::auth();
-    Auth::routes();
+    Route::get('login', 'Auth\LoginController@showLoginForm');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::get('logout', 'Auth\LoginController@logout');
 });
 
-$router->group(['namespace' => 'Admin', 'middleware' => ['auth','authAdmin','menu']], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => ['auth.admin','menu']], function () {
     //权限管理路由
     Route::get('admin/permission/{cid}/create', ['as' => 'admin.permission.create', 'uses' => 'PermissionController@create']);
     Route::get('admin/permission/{cid?}', ['as' => 'admin.permission.index', 'uses' => 'PermissionController@index']);
@@ -49,8 +55,4 @@ $router->group(['namespace' => 'Admin', 'middleware' => ['auth','authAdmin','men
     Route::post('admin/user/store', ['as' => 'admin.user.create', 'uses' => 'UserController@store']); //添加
 
 
-});
-
-Route::get('admin', function () {
-    return redirect('/admin/index');
 });

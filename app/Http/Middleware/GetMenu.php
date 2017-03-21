@@ -44,6 +44,7 @@ class GetMenu
                 ->get();
 
         });
+        var_dump($table);exit;
         foreach ($table as $v) {
             if ($v->cid == 0 || Auth::guard('admin')->user()->can($v->name)) {
 
