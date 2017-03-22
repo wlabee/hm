@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e045cc45ca5af721a54089e526b96e2d",
-    "content-hash": "8e9078dfa472ecda7080378c5bf29b66",
+    "hash": "93f33ad5171afe9ef7238e5eb8e2214a",
+    "content-hash": "0bfdcd07e58809d889cd7ed5d8074a59",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -72,16 +72,16 @@
         },
         {
             "name": "arcanedev/support",
-            "version": "3.21.3",
+            "version": "3.21.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ARCANEDEV/Support.git",
-                "reference": "e0b1dc0fb1aa2498a12e9d0bb13bcc529d5a334d"
+                "reference": "a4913355a537c71b22899ee9b932dbeb5ed229a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/ARCANEDEV/Support/e0b1dc0fb1aa2498a12e9d0bb13bcc529d5a334d.zip",
-                "reference": "e0b1dc0fb1aa2498a12e9d0bb13bcc529d5a334d",
+                "url": "https://files.phpcomposer.com/files/ARCANEDEV/Support/a4913355a537c71b22899ee9b932dbeb5ed229a9.zip",
+                "reference": "a4913355a537c71b22899ee9b932dbeb5ed229a9",
                 "shasum": ""
             },
             "require": {
@@ -127,7 +127,7 @@
                 "laravel",
                 "support"
             ],
-            "time": "2017-01-30 18:22:14"
+            "time": "2017-03-21 16:12:55"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -503,16 +503,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.15",
+            "version": "v5.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ecc6468b8af30b77566a8519ce8898740ef691d7"
+                "reference": "6cf379ec34d08bcdc9c7183e369a8fdf04ade80d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ecc6468b8af30b77566a8519ce8898740ef691d7",
-                "reference": "ecc6468b8af30b77566a8519ce8898740ef691d7",
+                "url": "https://files.phpcomposer.com/files/laravel/framework/6cf379ec34d08bcdc9c7183e369a8fdf04ade80d.zip",
+                "reference": "6cf379ec34d08bcdc9c7183e369a8fdf04ade80d",
                 "shasum": ""
             },
             "require": {
@@ -628,7 +628,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-03-02 14:41:40"
+            "time": "2017-03-21 19:34:41"
         },
         {
             "name": "laravel/tinker",

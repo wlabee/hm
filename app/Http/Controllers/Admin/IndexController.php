@@ -12,8 +12,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        Log::warning('warning');
-        return view('admin.index.index');
+        return view('admin.home');
     }
     
 }

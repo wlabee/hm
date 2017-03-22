@@ -1,60 +1,26 @@
-@extends('admin.layouts.base')
-
-@section('title','控制面板')
-
-@section('pageHeader','控制面板')
-
-@section('pageDesc','DashBoard')
+@extends('admin.layouts.app')
 
 @section('content')
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <style>
-        .page-content {
-            height: 100%;
-        }
-
-        .page-content {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-
-        .title {
-            font-size: 96px;
-        }
-    </style>
-
-
-    @include('admin.partials.errors')
-    @include('admin.partials.success')
-
-    <div class="container">
-        <div class="content">
-            <div class="title">HOME</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
+                <div class="panel-body">
+                    You are logged in!
+                </div>
+                <div class="block">
+                    <span class="demonstration">默认显示颜色</span>
+                    <span class="wrapper">
+                        <el-button type="success">成功按钮</el-button>
+                        <el-button type="warning">警告按钮</el-button>
+                        <el-button type="danger">危险按钮</el-button>
+                        <el-button type="info">信息按钮</el-button>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
-
-
-@stop
-
-@endsection
-
-
-@section('js')
-
+</div>
 @endsection
