@@ -11,7 +11,25 @@
 // element-ui
 //@import "node_modules/element-ui/lib/theme-default";
 
+.navbar {margin-bottom: 0px;}
 .slider {
     background-color: #324157;
-    height: 100%;
+    min-height: 600px;
+    .s-title {
+        padding: 5px 20px;
+    }
+    a {
+        color: #bfcbd9;
+        text-decoration: none;
+    }
+    a:hover, a:focus {
+        text-decoration: none;
+        color: #20a0ff;
+    }
+    .is-active > a {
+        color: #20a0ff;
+    }
+    .is-opened > .el-submenu__title {
+        color: #fff;
+    }
 }

@@ -1,20 +1,16 @@
-
-<el-menu default-active="2" class="el-menu-vertical-demo" theme="dark">
-    <el-submenu index="1">
-    <template slot="title"><i class="el-icon-message"></i>导航一</template>
-    <el-menu-item-group>
-        <template slot="title">分组一</template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-    </el-menu-item-group>
-    <el-menu-item-group title="分组2">
-        <el-menu-item index="1-3">选项3</el-menu-item>
-    </el-menu-item-group>
-    <el-submenu index="1-4">
-        <template slot="title">选项4</template>
-        <el-menu-item index="1-4-1">选项1</el-menu-item>
-    </el-submenu>
-    </el-submenu>
-    <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
-    <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+<h5 class="s-title">栏目导航</h5>
+<el-menu default-active="999" class="el-menu-vertical-demo" theme="dark">
+    <el-menu-item index="999"><i class="el-icon-menu"></i><a href="/admin">控制面板</a></el-menu-item>
+    @if(isset($comData['top'])&&count($comData['top']))
+        @foreach($comData['top'] as $v)
+        <el-submenu index="{{$loop->iteration}}" class="@if(in_array($v['id'],$comData['openarr'])) is-opened @endif">
+            <template slot="title"><i class="el-icon-message"></i>{{$v['display_name']}}</template>
+                @foreach($comData[$v['id']] as $vv)
+                    <el-menu-item index="{{$loop->parent->iteration}}-{{$loop->iteration}}" @if(in_array($vv['id'],$comData['openarr'])) class="is-active" @endif>
+                    <a href="{{URL::route($vv['name'])}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle-o"></i>{{$vv['display_name']}}</a>
+                    </el-menu-item>
+                @endforeach
+        </el-submenu>
+        @endforeach
+    @endif
 </el-menu>
