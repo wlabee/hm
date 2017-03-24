@@ -26,7 +26,8 @@ class GetMenu
      */
     function getMenu()
     {
-        $openArr = [];
+        $open = 0;
+        $active = 0;
         $data = [];
         $data['top']=[];
         //查找并拼接出地址的别名值
@@ -48,8 +49,8 @@ class GetMenu
             if ($v->cid == 0 || Auth::guard('admin')->user()->can($v->name)) {
 
                 if ($v->name == $urlPath) {
-                    $openArr[] = $v->id;
-                    $openArr[] = $v->cid;
+                    $open = $v->cid;
+                    $active = $v->id;
                 }
 
                 $data[$v->cid][] = $v->toarray();
@@ -63,7 +64,8 @@ class GetMenu
         }
         unset($data[0]);
         //ation open 可以在函数中计算给他
-        $data['openarr'] = array_unique($openArr);
+        $data['openmenu'] = $open;
+        $data['activemenu'] = $active;
         return $data;
 
     }
