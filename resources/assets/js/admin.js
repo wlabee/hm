@@ -14,6 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('ptable', require('./components/Ptable.vue'));
 
 // const app = new Vue({
 //     el: '#app'
@@ -25,4 +26,22 @@ Vue.use(ElementUI);
 
 const adminapp = new Vue({
     el: '#adminapp'
+    // data : {
+    //       tableData: [{
+    //         name: '王小虎',
+    //         display_name: 'dsdsd',
+    //         description: 'dsdwdwewgerger',
+    //         created_at: '2016-05-02',
+    //         updated_at: '2016-05-02',
+    //         operate: '操作'
+    //       },
+    //       {
+    //         name: '王小虎',
+    //         display_name: 'dsdsd',
+    //         description: 'dsdwdwewgerger',
+    //         created_at: '2016-05-02',
+    //         updated_at: '2016-05-02',
+    //         operate: '操作'
+    //       }]
+    //   }
 });

@@ -1,5 +1,6 @@
 <h5 class="s-title">栏目导航</h5>
-<el-menu @if($comData['openmenu']) default-openeds="[{{$comData['openmenu']}}]" @endif default-active="{{$comData['activemenu'] or 999}}" class="el-menu-vertical-demo" theme="dark">
+{{$comData['activemenu']}}
+<el-menu @if($comData['openmenu']) default-opened="{{$comData['openmenu']}}" @endif default-active="{{$comData['activemenu'] > 0 ? $comData['activemenu'] : 999}}" class="el-menu-vertical-demo" theme="dark">
     <el-menu-item index="999"><i class="el-icon-menu"></i><a href="/admin">控制面板</a></el-menu-item>
     @if(isset($comData['top'])&&count($comData['top']))
         @foreach($comData['top'] as $v)
