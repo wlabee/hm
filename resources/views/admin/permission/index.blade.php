@@ -114,6 +114,8 @@
             },
             order: [[5, "asc"]],
             serverSide: true,
+            bDestroy: true,
+            bRetrieve: true,
 
             ajax: {
                 url: '/admin/permission/index',
@@ -122,7 +124,7 @@
                     d.cid = cid;
                 },
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             },
             "columns": [
@@ -160,7 +162,8 @@
             table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
                 cell.innerHTML = i + 1;
             });
-        }).draw();
+        {{-- }).draw(); --}}
+        });
 
         $("table").delegate('.delBtn', 'click', function () {
             var id = $(this).attr('attr');

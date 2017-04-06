@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth,Cache;
+use Auth,Cache,Route;
 class GetMenu
 {
     /**
@@ -32,6 +32,8 @@ class GetMenu
         $data['top']=[];
         //查找并拼接出地址的别名值
         $path_arr = explode('/', \URL::getRequest()->path());
+        // var_dump($_SERVER);exit;
+        // var_dump(Route::currentRouteName());exit;
 
         if (isset($path_arr[1])) {
             $urlPath = $path_arr[0] . '.' . $path_arr[1] . '.index';

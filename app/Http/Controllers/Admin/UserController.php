@@ -156,10 +156,10 @@ class UserController extends Controller
         }
 
         unset($user->roles);
-        
+        $user->save();
         $user->giveRoleTo($request->get('roles',[]));
 
-        return redirect('/admin/user')->withSuccess('添加成功！');
+        return redirect('/admin/user')->withSuccess('保存成功！');
     }
 
     /**

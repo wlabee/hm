@@ -8,6 +8,8 @@ window._ = require('lodash');
  */
 
 window.$ = window.jQuery = require('jquery');
+require( 'datatables.net-bs' );
+require( 'datatables.net' );
 
 require('bootstrap-sass');
 
@@ -45,6 +47,9 @@ window.axios.defaults.headers.common = {
 //     key: 'your-pusher-key'
 // });
 
-window.VueRouter = require('vue-router');
-window.Vuex = require('vuex');
-//window.El = require('element-ui');
+loadShow = function(){
+    $("#loading").show();
+}
+loadFadeOut=function(){
+    $("#loading").fadeOut(500);
+}

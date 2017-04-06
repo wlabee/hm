@@ -14,34 +14,24 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
-Vue.component('ptable', require('./components/Ptable.vue'));
 
 // const app = new Vue({
 //     el: '#app'
 // });
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import 'admin-lte/dist/css/AdminLTE.min.css'
+import 'datatables.net-bs/css/dataTables.bootstrap.css'
 
 Vue.use(ElementUI);
 
 const adminapp = new Vue({
     el: '#adminapp'
-    // data : {
-    //       tableData: [{
-    //         name: '王小虎',
-    //         display_name: 'dsdsd',
-    //         description: 'dsdwdwewgerger',
-    //         created_at: '2016-05-02',
-    //         updated_at: '2016-05-02',
-    //         operate: '操作'
-    //       },
-    //       {
-    //         name: '王小虎',
-    //         display_name: 'dsdsd',
-    //         description: 'dsdwdwewgerger',
-    //         created_at: '2016-05-02',
-    //         updated_at: '2016-05-02',
-    //         operate: '操作'
-    //       }]
-    //   }
+});
+$(function () {
+    $("li.el-menu-item").on('click', function(){
+        if ($(this).has('a')) {
+            window.location.href = $(this).children('a').attr('href');
+        }
+    });
 });
