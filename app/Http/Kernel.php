@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'permission' => \App\Http\Middleware\Permission::class,
         'auth.admin' => \App\Http\Middleware\AdminAuthMiddleware::class,
         'menu'=>\App\Http\Middleware\GetMenu::class,
+        'category'=>\App\Http\Middleware\Category::class,
     ];
 }

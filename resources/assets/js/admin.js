@@ -26,7 +26,10 @@ import 'datatables.net-bs/css/dataTables.bootstrap.css'
 Vue.use(ElementUI);
 
 const adminapp = new Vue({
-    el: '#adminapp'
+    el: '#adminapp',
+    data: {
+        datatimex:''
+    }
 });
 $(function () {
     $("li.el-menu-item").on('click', function(){

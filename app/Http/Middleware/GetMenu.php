@@ -34,6 +34,8 @@ class GetMenu
         $path_arr = explode('/', \URL::getRequest()->path());
         // var_dump($_SERVER);exit;
         // var_dump(Route::currentRouteName());exit;
+        // Cache::store('file')->forget('perms');//清理缓存
+        // Cache::store('file')->forget('menus');//清理缓存
 
         if (isset($path_arr[1])) {
             $urlPath = $path_arr[0] . '.' . $path_arr[1] . '.index';
