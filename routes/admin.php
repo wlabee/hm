@@ -87,4 +87,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
         ]
     ]);
 
+    //category配置管理路由
+    Route::match(['get', 'post'], 'slider/category', ['as' => 'admin.category.index', 'uses' => 'CategoryController@index']);
+    Route::resource('category', 'CategoryController', ['names' => 
+        [
+            'create'    => 'admin.category.create',
+            'index'     => 'admin.category.index',
+            'edit'      => 'admin.category.edit',
+            'store'     => 'admin.category.create',
+            'update'    => 'admin.category.edit',
+            'destroy'   => 'admin.category.destroy'
+        ]
+    ]);
+
 });

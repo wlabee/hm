@@ -10,8 +10,6 @@ use App\Models\Slider as Slider;
 
 class SliderController extends Controller
 {
-    private $_model = null;
-
     protected $fields = [
         'title' => '',
         'image' => '',
@@ -84,7 +82,16 @@ class SliderController extends Controller
      */
     public function store() 
     {
-        
+        $slider = new Slider();
+       foreach (array_keys($this->fields) as $field) {
+            $slider->$field = $request->get($field);
+        }
+        try {
+            $slider->save();
+        } catch (Exprection $e) {
+
+        }
+        return redirect('/admin/slider')->withSuccess('添加成功！');
     }
 
     /**
@@ -93,9 +100,17 @@ class SliderController extends Controller
      * @param 
      * @return 
      */
-    public function edit() 
+    public function edit($id) 
     {
-        
+        $slider = Slider::find((int)$id);
+        if(! $slider) return redirect('/admin/slider')->withErrors('找不到数据');
+
+        $data = [];
+        foreach (array_keys($this->fields) as $field) {
+            $data[$field] = old($field, $slider->$field);
+        }
+
+        return view('admin.slider.edit', $data);
     }
 
     /**
@@ -104,9 +119,16 @@ class SliderController extends Controller
      * @param 
      * @return 
      */
-    public function update() 
+    public function update(Request $request, $id) 
     {
+        $slider = Slider::find((int)$id);
+        foreach (array_keys($this->fields) as $field) {
+            $slider->$field = $request->get($field);
+        }
+
+        $slider->save();
         
+        return redirect('/admin/slider')->withSuccess('修改成功！');
     }
 
     /**
@@ -115,8 +137,17 @@ class SliderController extends Controller
      * @param 
      * @return 
      */
-    public function destroy() 
+    public function destroy($id) 
     {
-        
+        $slider = Slider::find((int)$id);
+        if ($slider) {
+            $slider->delete();
+        } else {
+            return redirect()->back()
+                ->withErrors("删除失败");
+        }
+
+        return redirect()->back()
+            ->withSuccess("删除成功");
     }
 }
