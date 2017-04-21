@@ -19,9 +19,7 @@
 <div class="form-group">
     <label for="tag" class="col-md-3 control-label">开始时间</label>
     <div class="col-md-5">
-    <el-date-picker  v-model="datatimex" type="datetimerange" placeholder="选择时间范围">
-    </el-date-picker>
-        <input type="datetime" class="form-control" name="start_time" id="tag" value="{{ $start_time }}" autofocus>
+        <input type="datetime" class="form-control" name="start_time" id="datepicker" value="{{ $start_time }}dsds" autofocus>
     </div>
 </div>
 <div class="form-group">
@@ -36,5 +34,13 @@
         <input type="text" class="form-control" name="sort" id="tag" value="{{ $sort }}" autofocus>
     </div>
 </div>
+@section('js')
+<script>
+    $(function() {
+        $( "#datepicker" ).datePicker();
+        console.log($("#datepicker").val());
+    });
+</script>
+@stop
 
 

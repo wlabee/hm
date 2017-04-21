@@ -22,6 +22,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import 'admin-lte/dist/css/AdminLTE.min.css'
 import 'datatables.net-bs/css/dataTables.bootstrap.css'
+import 'jquery-ui/themes/base/all.css'
 
 Vue.use(ElementUI);
 

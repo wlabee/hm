@@ -80,8 +80,9 @@ class SliderController extends Controller
      * @param 
      * @return 
      */
-    public function store() 
+    public function store(Request $request) 
     {
+        dd($request);
         $slider = new Slider();
        foreach (array_keys($this->fields) as $field) {
             $slider->$field = $request->get($field);
