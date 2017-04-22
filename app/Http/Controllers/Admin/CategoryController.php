@@ -13,6 +13,7 @@ class CategoryController extends Controller
     protected $fields = [
         'cat_name' => '',
         'pid' => '0',
+        'sort' => '0',
     ];
 
     public function index(Request $request)
