@@ -1,9 +1,11 @@
 <?php namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function addCate($data) {
-        
-    }
+
+    protected $table = 'category';
+
+    public $timestamps = false;
 }

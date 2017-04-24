@@ -82,7 +82,6 @@ class SliderController extends Controller
      */
     public function store(Request $request) 
     {
-        dd($request);
         $slider = new Slider();
        foreach (array_keys($this->fields) as $field) {
             $slider->$field = $request->get($field);
@@ -111,6 +110,7 @@ class SliderController extends Controller
             $data[$field] = old($field, $slider->$field);
         }
 
+        $data['id'] = (int)$id;
         return view('admin.slider.edit', $data);
     }
 

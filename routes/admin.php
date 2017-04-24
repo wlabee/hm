@@ -88,16 +88,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     ]);
 
     //category配置管理路由
-    Route::match(['get', 'post'], 'slider/category', ['as' => 'admin.category.index', 'uses' => 'CategoryController@index']);
+    Route::match(['get', 'post'], 'category/index', ['as' => 'admin.category.index', 'uses' => 'CategoryController@index']);
     Route::resource('category', 'CategoryController', ['names' => 
         [
             'create'    => 'admin.category.create',
             'index'     => 'admin.category.index',
             'edit'      => 'admin.category.edit',
-            'store'     => 'admin.category.create',
-            'update'    => 'admin.category.edit',
             'destroy'   => 'admin.category.destroy'
         ]
     ]);
+     Route::post('category/update', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@update']); //修改
+    // Route::post('user/index', ['as' => 'admin.user.index', 'uses' => 'UserController@index']);
+    Route::post('category/store', ['as' => 'admin.category.create', 'uses' => 'CategoryController@store']); //添加
 
 });

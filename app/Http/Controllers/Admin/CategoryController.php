@@ -32,7 +32,7 @@ class CategoryController extends Controller
                     $query->where('cat_name', 'LIKE', '%' . $search['value'] . '%');
                 })->count();
                 $data['data'] = Category::where(function ($query) use ($search) {
-                    $query->where('name', 'LIKE', '%' . $search['value'] . '%');
+                    $query->where('cat_name', 'LIKE', '%' . $search['value'] . '%');
                 })
                     ->skip($start)->take($length)
                     ->orderBy($columns[$order[0]['column']]['data'], $order[0]['dir'])
@@ -59,14 +59,14 @@ class CategoryController extends Controller
         return view('admin.category.create', $data);
     }
 
-    public function store() 
+    public function store(Request $request) 
     {
-        $slider = new category();
+        $cate = new category();
        foreach (array_keys($this->fields) as $field) {
-            $slider->$field = $request->get($field);
+            $cate->$field = is_null($request->get($field)) ? $this->fields[$field] : $request->get($field);
         }
         try {
-            $slider->save();
+            $cate->save();
         } catch (Exprection $e) {
 
         }
@@ -82,6 +82,7 @@ class CategoryController extends Controller
         foreach (array_keys($this->fields) as $field) {
             $data[$field] = old($field, $cate->$field);
         }
+        $data['id'] = (int)$id;
 
         return view('admin.category.edit', $data);
     }
@@ -90,7 +91,7 @@ class CategoryController extends Controller
     {
         $cate = category::find((int)$id);
         foreach (array_keys($this->fields) as $field) {
-            $cate->$field = $request->get($field);
+            $cate->$field = is_null($request->get($field)) ? $this->fields[$field] : $request->get($field);
         }
 
         $cate->save();

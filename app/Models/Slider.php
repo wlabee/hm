@@ -6,10 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slider extends Model
 {
-    //
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-        $this->table = 'slider';
-    }
+    protected $table = 'slider';
+
+    public $timestamps = false;
 }
