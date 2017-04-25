@@ -17,11 +17,11 @@
                             @include('admin.partials.errors')
                             @include('admin.partials.success')
                             <form class="form-horizontal" role="form" method="POST"
-                                  action="/admin/role/{{ $id }}">
+                                  action="/admin/slider/{{ $id }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="id" value="{{ $id }}">
-                                @include('admin.role._form')
+                                @include('admin.slider._form')
                                 <div class="form-group">
                                     <div class="col-md-7 col-md-offset-3">
                                         <button type="submit" class="btn btn-primary btn-md">
@@ -39,4 +39,13 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('js')
+<script>
+    $(function() {
+        $( "#datepicker" ).DatePicker();
+        console.log($("#datepicker").val());
+    });
+</script>
 @stop

@@ -20,9 +20,22 @@ Vue.component('example', require('./components/Example.vue'));
 // });
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import App from './App.vue'
+import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 
 Vue.use(ElementUI);
 
+Vue.use(VueRouter)
+
+Vue.use(VueResource)
+
+/* eslint-disable no-new */
+
+var router = new VueRouter({
+    history: true,
+    root: 'dashboard'
+})
 const app = new Vue({
     el: '#app'
 });

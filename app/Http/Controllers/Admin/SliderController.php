@@ -84,7 +84,7 @@ class SliderController extends Controller
     {
         $slider = new Slider();
        foreach (array_keys($this->fields) as $field) {
-            $slider->$field = $request->get($field);
+            $slider->$field = is_null($request->get($field)) ? $this->fields[$field] : $request->get($field);
         }
         try {
             $slider->save();
@@ -124,7 +124,7 @@ class SliderController extends Controller
     {
         $slider = Slider::find((int)$id);
         foreach (array_keys($this->fields) as $field) {
-            $slider->$field = $request->get($field);
+            $slider->$field = is_null($request->get($field)) ? $this->fields[$field] : $request->get($field);
         }
 
         $slider->save();

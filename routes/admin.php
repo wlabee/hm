@@ -81,11 +81,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
             'create'    => 'admin.slider.create',
             'index'     => 'admin.slider.index',
             'edit'      => 'admin.slider.edit',
-            'store'     => 'admin.slider.create',
-            'update'    => 'admin.slider.edit',
             'destroy'   => 'admin.slider.destroy'
         ]
     ]);
+    Route::post('slider/update', ['as' => 'admin.slider.edit', 'uses' => 'SliderController@update']); //修改
+    Route::post('slider/store', ['as' => 'admin.slider.create', 'uses' => 'SliderController@store']); //添加
 
     //category配置管理路由
     Route::match(['get', 'post'], 'category/index', ['as' => 'admin.category.index', 'uses' => 'CategoryController@index']);
@@ -97,8 +97,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
             'destroy'   => 'admin.category.destroy'
         ]
     ]);
-     Route::post('category/update', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@update']); //修改
-    // Route::post('user/index', ['as' => 'admin.user.index', 'uses' => 'UserController@index']);
+    Route::post('category/update', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@update']); //修改
     Route::post('category/store', ['as' => 'admin.category.create', 'uses' => 'CategoryController@store']); //添加
 
 });
