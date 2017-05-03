@@ -100,4 +100,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('category/update', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@update']); //修改
     Route::post('category/store', ['as' => 'admin.category.create', 'uses' => 'CategoryController@store']); //添加
 
+    //friend_link配置管理路由
+    Route::match(['get', 'post'], 'frlink/index', ['as' => 'admin.frlink.index', 'uses' => 'FrlinkController@index']);
+    Route::resource('frlink', 'FrlinkController', ['names' => 
+        [
+            'create'    => 'admin.frlink.create',
+            'index'     => 'admin.frlink.index',
+            'edit'      => 'admin.frlink.edit',
+            'destroy'   => 'admin.frlink.destroy'
+        ]
+    ]);
+    Route::post('frlink/update', ['as' => 'admin.frlink.edit', 'uses' => 'FrlinkController@update']); //修改
+    Route::post('frlink/store', ['as' => 'admin.frlink.create', 'uses' => 'FrlinkController@store']); //添加
+
 });
