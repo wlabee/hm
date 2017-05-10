@@ -39,25 +39,10 @@ var router = new VueRouter({
 // router.beforeEach((to, from, next) => {
 
 //     if (!window.User) {
-//         return next('/admin/login')
+//         return next('/login')
 //     }
-//     var url = '/admin/checkAcl', path =to.path;
-//     Vue.http({url:url,method:'GET',params:{path:path}})
-//         .then(response => {
-//             var responseJson = response.data;
-
-//             if(!responseJson.status){
-//                 return next({ path: '/admin/error' });
-//             }
-
-//         }, response => {
-//             return next({ path: '/admin/login' });
-//         });
-//     //to.callHttp("POST",url,{path:path}, function (json) {
-//     //
-//     //
-//     //});
-//     return next();
+//     return next({ path: '/login' });
+//     // return next();
 // })
 
 

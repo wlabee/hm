@@ -12,8 +12,8 @@ export default [
         children: [
             {
                 path: 'test',
-                component: Parent,
                 name: '测试',
+                component: Parent,
                 children: [
                     {
                         path: 'index',
@@ -24,35 +24,9 @@ export default [
                 ]
             },
             // {
-            //     path: 'role',
-            //     component: Parent,
-            //     name: '角色管理',
-            //     children: [
-            //         {
-            //             path: 'index',
-            //             name: '角色列表',
-            //             component: require('./views/admin/role/Index.vue')
-            //         },
-            //         {
-            //             path: 'create',
-            //             name: '添加角色',
-            //             component: require('./views/admin/role/Create.vue')
-            //         },
-            //         {
-            //             path: 'update/:id',
-            //             name: '编辑角色',
-            //             component: require('./views/admin/role/Update.vue')
-            //         },
-            //         {
-            //             path: 'setacl/:id',
-            //             name: '设置权限',
-            //             component: require('./views/admin/role/Acl.vue')
-            //         }
-            //     ]
-            // },
-            // {
-            //     path: '*',
-            //     redirect: '/'
+            //     path: 'login',
+            //     name: '登录',
+            //     component: require('./components/login.vue')
             // }
         ]
     }
