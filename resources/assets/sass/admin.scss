@@ -13,9 +13,13 @@
 //@import "node_modules/element-ui/lib/theme-default";
 
 .navbar {margin-bottom: 0px;}
+.tac {
+    height: 100%;
+}
 .slider {
     background-color: #324157;
     min-height: 600px;
+    height: 100%;
     .s-title {
         padding: 5px 20px;
     }

@@ -1,7 +1,6 @@
 <template>
     <div id="app">
         <mheader></mheader>
-        <menux></menux>
         <p>{{sayhello}}</p>
         <router-view></router-view>
         <mfooter></mfooter>

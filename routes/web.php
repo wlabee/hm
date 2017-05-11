@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
 Route::get('/', function () {
     return view('web');
 });
 
+Auth::routes();
 
+Route::get('/get/category', 'CategoryController@getList');
+Route::get('/get/friendlink', 'FriendLinkController@getList');

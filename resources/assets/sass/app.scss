@@ -3,10 +3,62 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 // Variables
-@import "variables";
+@import "variables-front";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // element-ui
 //@import "node_modules/element-ui/lib/theme-default";
+
+.mheader {
+    .top-bar {
+        background-color: $outer-bg;
+        height: 30px;
+        text-align: right;
+    }
+    .menu-bar { 
+        border-bottom: 5px solid $outer-main;
+        height: 170px;
+        .logo {
+            text-align: right;
+            vertical-align: bottom;
+            height: 170px;
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .search-f {
+            padding: 10px 50px 10px 50px;
+            height: 70px;
+            .search-input {
+                width: 80%;
+            }
+            .el-input__inner {
+                border-color: $outer-main;
+            }
+            .el-input__icon {
+                color: #fff;
+                background-color: $outer-main; 
+                border-radius: 4px;
+                width: 60px;
+                font-size: 22px;
+            }
+            .sub-search {
+                color: $outer-text;
+                a {
+                    color: $outer-text;
+                }
+            }
+        }
+        .menu-main {
+            height: 100px;
+            padding-top: 40px;
+            background-color: $body-bg;
+            .el-menu-item {
+                border-bottom: 5px solid #fe642f;
+            }
+        }
+    }
+}
