@@ -9,10 +9,10 @@
         </el-row>
         <el-row class="menu-bar">
             <el-col :span="16" :offset="4">
-                <el-col :span="6" class="logo">
-                    <img src="images/boxed-bg.jpg" alt="">
+                <el-col :span="4" class="logo">
+                    <img src="images/hm_logo.png" alt="慧买">
                 </el-col>
-                <el-col :span="18">
+                <el-col :span="20">
                     <el-col>
                         <div class="search-f">
                             <el-input class="search-input" placeholder="请输入您要搜索的内容" icon="search" v-model="input2" :on-icon-click="handleIconClick"></el-input>
@@ -40,7 +40,7 @@
     export default{
         data() {
             return {
-            input2: ''
+            activeIndex: '1'
             }
         },
         methods: {

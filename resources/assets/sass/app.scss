@@ -19,18 +19,17 @@
     }
     .menu-bar { 
         border-bottom: 5px solid $outer-main;
-        height: 170px;
+        height: 135px;
         .logo {
             text-align: right;
             vertical-align: bottom;
-            height: 170px;
+            height: 135px;
             img {
-                width: 100px;
-                height: 100px;
+                padding-top: 35px;
             }
         }
         .search-f {
-            padding: 10px 50px 10px 50px;
+            padding: 10px 50px 10px 100px;
             height: 70px;
             .search-input {
                 width: 80%;
@@ -53,11 +52,22 @@
             }
         }
         .menu-main {
-            height: 100px;
-            padding-top: 40px;
+            padding-top: 20px;
             background-color: $body-bg;
+            .el-menu {
+                background-color: $body-bg;
+                border-bottom: 5px solid $outer-main;
+
+            }
             .el-menu-item {
-                border-bottom: 5px solid #fe642f;
+                font-weight: bold;
+                font-size: 16px;
+                margin: 0 20px 0 20px;
+                height: 40px;
+                line-height: 40px;
+            }
+            .el-menu-item:hover {
+                background-color: $body-bg;
             }
         }
     }
