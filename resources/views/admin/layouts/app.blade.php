@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet"> --}}
 
     <link href="{{ asset('css/load/load.css') }}" rel="stylesheet">
 
@@ -54,6 +55,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery-ui.js') }}"></script> --}}
+    <script src="{{ asset('js/datetimepicker/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{ asset('js/datetimepicker/bootstrap-datetimepicker.zh-CN.js') }}"></script>
+
     @yield('js')
         <!-- Main Footer -->
     @include('admin.layouts.footer')

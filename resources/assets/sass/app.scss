@@ -57,17 +57,40 @@
             .el-menu {
                 background-color: $body-bg;
                 border-bottom: 5px solid $outer-main;
-
-            }
-            .el-menu-item {
-                font-weight: bold;
-                font-size: 16px;
-                margin: 0 20px 0 20px;
-                height: 40px;
-                line-height: 40px;
-            }
-            .el-menu-item:hover {
-                background-color: $body-bg;
+                .el-menu-item {
+                    font-weight: bold;
+                    font-size: 16px;
+                    margin: 0;
+                    padding: 0 15px;
+                    height: 40px;
+                    line-height: 48px;
+                    border-bottom: none;
+                }
+                .el-menu-item:hover {
+                    background-color: $body-bg;
+                    color: $outer-main;
+                    border-bottom: none;
+                    a {
+                        text-decoration: none;
+                    }
+                }
+                .el-menu-item.is-active {
+                    background-image: url('../images/hm_active.png');
+                    background-repeat:no-repeat;
+                    background-position:top right;
+                    padding:0px 15px;
+                    a {
+                        background-color: $outer-main;
+                        color: #fff;
+                        border-radius: 4px;
+                    }
+                }
+                a {
+                    padding: 10px 20px;
+                }
+                a:focus {
+                    text-decoration: none;
+                }
             }
         }
     }

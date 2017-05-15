@@ -15,7 +15,7 @@
                 <el-col :span="20">
                     <el-col>
                         <div class="search-f">
-                            <el-input class="search-input" placeholder="请输入您要搜索的内容" icon="search" v-model="input2" :on-icon-click="handleIconClick"></el-input>
+                            <el-input class="search-input" placeholder="请输入您要搜索的内容" icon="search" v-model="inputSearch" :on-icon-click="handleIconClick"></el-input>
                             <div class="sub-search">
                                 热门搜索：
                                 <a href="">橱柜</a>
@@ -25,7 +25,7 @@
                     </el-col>
                     <el-col>
                         <div class="grid-content menu-main">
-                            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                            <el-menu :default-active="activeIndex" mode="horizontal">
                                 <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
                                 <el-menu-item index="2"> <router-link to="/test/index">小编精选</router-link></el-menu-item>
                             </el-menu>
@@ -40,7 +40,8 @@
     export default{
         data() {
             return {
-            activeIndex: '1'
+            activeIndex: '1',
+            inputSearch: ''
             }
         },
         methods: {
