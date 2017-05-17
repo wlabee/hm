@@ -1,17 +1,20 @@
 <div class="form-group">
-    <label for="tag" class="col-md-3 control-label">标题</label>
+    <label for="title" class="col-md-3 control-label">标题</label>
     <div class="col-md-5">
         <input type="text" class="form-control" name="title" id="title" value="{{ $title }}" autofocus>
     </div>
 </div>
 <div class="form-group">
-    <label for="tag" class="col-md-3 control-label">图片</label>
+    <label for="image" class="col-md-3 control-label">图片</label>
     <div class="col-md-5">
         <input type="file" class="form-control" name="image" id="image" value="{{ $image }}" autofocus>
+        @if ($image)
+        <img src="{{$image}}" width="50" height="50"/>
+        @endif
     </div>
 </div>
 <div class="form-group">
-    <label for="tag" class="col-md-3 control-label">链接</label>
+    <label for="gourl" class="col-md-3 control-label">链接</label>
     <div class="col-md-5">
         <input type="url" class="form-control" name="gourl" id="gourl" value="{{ $gourl }}" autofocus>
     </div>
@@ -19,20 +22,23 @@
 <div class="form-group">
     <label for="tag" class="col-md-3 control-label">开始时间</label>
     <div class="col-md-5">
-        <input type="datetime" placeholder="默认不限制" class="form-control" name="start_time" id="datepicker1" value="{{ $start_time }}" autofocus>
+        <div class="input-group date form_datetime col-md-5" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="start_time">
+            <input class="form-control" size="16" type="text" value="{{$start_time}}" readonly placeholder="默认没有限制">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+        </div>
+        <input type="hidden" id="start_time" name="start_time" value="{{$start_time}}" placeholder="默认没有限制"/>
     </div>
-    <label for="dtp_input1" class="col-md-3 control-label">DateTime Picking</label>
-    <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss" data-link-field="dtp_input1">
-        <input class="form-control" size="16" type="text" value="" readonly>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-    </div>
-    <input type="hidden" id="dtp_input1" value="" /><br/>
 </div>
 <div class="form-group">
     <label for="tag" class="col-md-3 control-label">结束时间</label>
     <div class="col-md-5">
-        <input type="datetime" placeholder="默认不限制" class="form-control" name="end_time" id="datepicker2" value="{{ $end_time }}" autofocus>
+        <div class="input-group date form_datetime col-md-5" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="end_time">
+            <input class="form-control" size="16" type="text" value="{{ $end_time }}" readonly placeholder="默认没有限制">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+        </div>
+        <input type="hidden" id="end_time" name="end_time" value="{{$end_time}}" placeholder="默认没有限制"/>
     </div>
 </div>
 <div class="form-group">

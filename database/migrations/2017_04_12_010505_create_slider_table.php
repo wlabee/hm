@@ -20,7 +20,7 @@ class CreateSliderTable extends Migration
             $table->string('gourl');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->boolean('is_delete');
+            $table->boolean('is_delete')->default(0);
             $table->integer('sort');
             
             $table->index('sort');

@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Slider as Slider;
+use App\Helper\Uploader as Uploader;
+use Storage;
 
 class SliderController extends Controller
 {
@@ -14,8 +16,8 @@ class SliderController extends Controller
         'title' => '',
         'image' => '',
         'gourl' => '',
-        'start_time' => '',
-        'end_time' => '',
+        'start_time' => '0',
+        'end_time' => '0',
         'sort' => '',
     ];
 
@@ -86,6 +88,16 @@ class SliderController extends Controller
        foreach (array_keys($this->fields) as $field) {
             $slider->$field = is_null($request->get($field)) ? $this->fields[$field] : $request->get($field);
         }
+        $file = $request->file('image');
+        // 文件是否上传成功
+        if ($file && $file->isValid()) {
+            $path = $request->file('image')->store('uploads/'.date('Ym'));
+            $slider->image =  '/storage/' . $path;
+        }
+
+        $slider->start_time = $slider->start_time?:date('Y-m-d H:i:s');
+        $slider->end_time = $slider->end_time?:date('Y-m-d H:i:s', time() + 10*365*24*60*60);
+
         try {
             $slider->save();
         } catch (Exprection $e) {
@@ -124,8 +136,18 @@ class SliderController extends Controller
     {
         $slider = Slider::find((int)$id);
         foreach (array_keys($this->fields) as $field) {
-            $slider->$field = is_null($request->get($field)) ? $this->fields[$field] : $request->get($field);
+            $slider->$field = is_null($request->get($field)) ? $slider->$field : $request->get($field);
         }
+
+        $file = $request->file('image');
+        // 文件是否上传成功
+        if ($file && $file->isValid()) {
+            $path = $request->file('image')->store('uploads/'.date('Ym'));
+            $slider->image =  '/storage/' . $path;
+        }
+
+        $slider->start_time = $slider->start_time?:date('Y-m-d H:i:s');
+        $slider->end_time = $slider->end_time?:date('Y-m-d H:i:s', time() + 10*365*24*60*60);
 
         $slider->save();
         
