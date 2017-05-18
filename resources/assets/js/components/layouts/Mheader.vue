@@ -3,7 +3,34 @@
         <el-row class="top-bar">
             <el-col :span="16" :offset="4">
                 <div class="login-bar">
-                    <span>登录 | 注册</span>
+                    <span>
+                        <a data-toggle="modal" data-target="#loginform" title="登录">登录</a> | 注册
+                     </span>
+                </div>
+                <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">登录慧买</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="input-group">
+                                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1">账户</span>
+                                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1">密码</span>
+                                        <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group">
+                                        <el-button class="login" type="primary" native-type="submit">登录</el-button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </el-col>
         </el-row>
@@ -40,8 +67,13 @@
     export default{
         data() {
             return {
-            activeIndex: '1',
-            inputSearch: ''
+                activeIndex: '1',
+                inputSearch: '',
+                labelPosition: 'right',
+                formLabelAlign: {
+                    name: '',
+                    password: ''
+                }
             }
         },
         methods: {

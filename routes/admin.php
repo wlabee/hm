@@ -14,6 +14,7 @@
 Route::get('admin', function () {
     return redirect('/admin/index');
 });
+Route::post('admin/upload', 'Admin\IndexController@upload');
 Route::get('admin/index', ['as' => 'admin.index', 'middleware' => ['auth.admin','menu'], 'uses'=>'Admin\\IndexController@index']);
 
 Route::group(['namespace' => 'Admin','prefix' => '/admin',], function () {

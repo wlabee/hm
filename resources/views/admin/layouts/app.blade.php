@@ -23,6 +23,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    @yield('css')
 </head>
 <body>
     <div id="loading">

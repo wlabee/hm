@@ -2,7 +2,5 @@
   "/js/app.js": "/js/app.js",
   "/css/admin.css": "/css/admin.css",
   "/css/app.css": "/css/app.css",
-  "/js/admin.js": "/js/admin.js",
-  "/js/jquery-ui.js": "/js/jquery-ui.js",
-  "/css/jquery-ui.css": "/css/jquery-ui.css"
+  "/js/admin.js": "/js/admin.js"
 }
