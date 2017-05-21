@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title','编辑友情链接')
+@section('title','编辑热词')
 
 @section('content')
     <div class="main animsition">
@@ -10,14 +10,14 @@
                 <div class="">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">编辑友情链接</h3>
+                            <h3 class="panel-title">编辑热词</h3>
                         </div>
                         <div class="panel-body">
 
                             @include('admin.partials.errors')
                             @include('admin.partials.success')
                             <form class="form-horizontal" role="form" method="POST"
-                                  action="/admin/frlink/{{ $id }}">
+                                  action="/admin/hotword/{{ $id }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="id" value="{{ $id }}">

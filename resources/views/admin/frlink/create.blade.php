@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title','添加分类')
+@section('title','添加友情链接')
 
 @section('content')
     <div class="main animsition">
@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">添加分类</h3>
+                            <h3 class="panel-title">添加友情链接</h3>
                         </div>
                         <div class="panel-body">
 

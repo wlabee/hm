@@ -113,4 +113,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('frlink/update', ['as' => 'admin.frlink.edit', 'uses' => 'FrlinkController@update']); //修改
     Route::post('frlink/store', ['as' => 'admin.frlink.create', 'uses' => 'FrlinkController@store']); //添加
 
+    //hotword配置管理路由
+    Route::match(['get', 'post'], 'hotword/index', ['as' => 'admin.hotword.index', 'uses' => 'HotwordController@index']);
+    Route::resource('hotword', 'HotwordController', ['names' => 
+        [
+            'create'    => 'admin.hotword.create',
+            'index'     => 'admin.hotword.index',
+            'edit'      => 'admin.hotword.edit',
+            'destroy'   => 'admin.hotword.destroy'
+        ]
+    ]);
+    Route::post('hotword/update', ['as' => 'admin.hotword.edit', 'uses' => 'HotwordController@update']); //修改
+    Route::post('hotword/store', ['as' => 'admin.hotword.create', 'uses' => 'HotwordController@store']); //添加
+
 });

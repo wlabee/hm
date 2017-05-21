@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -17,7 +16,7 @@ require('./bootstrap');
 //     el: '#app'
 // });
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-hm/index.css'
+import 'element-ui/lib/theme-default/index.css'
 import App from './components/App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
