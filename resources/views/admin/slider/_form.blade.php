@@ -47,9 +47,16 @@
         <input type="text" class="form-control" name="sort" id="sort" value="{{ $sort }}" autofocus>
     </div>
 </div>
+<div id="div1">
+    <p>请输入内容...</p>
+</div>
+@section('css')
+<link href="{{ asset('plugs/wangeditor/css/wangEditor.min.css') }}" rel="stylesheet">
+@stop
 @section('js')
+<script src="{{ asset('plugs/wangeditor/js/wangEditor.min.js') }}"></script>
 <script>
-  $( function() {
+$( function() {
     {{-- $( "#datepicker1" ).datepicker({dateFormat: "yy-mm-dd",duration: "slow"});
     $( "#datepicker2" ).datepicker({dateFormat: "yy-mm-dd"}); --}}
     $('.form_datetime').datetimepicker({
@@ -62,7 +69,13 @@
 		forceParse: 0,
         showMeridian: 1
     });
+    var editor = new wangEditor('div1');
+    editor.config.uploadImgUrl = '/admin/upload';
+    editor.config.uploadHeaders = {
+        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+    };
+    editor.config.uploadImgFileName = 'editorfile'
+    editor.create();
   } );
-</script>
+  </script>
 @stop
-

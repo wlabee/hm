@@ -16,6 +16,9 @@
         background-color: $outer-bg;
         height: 30px;
         text-align: right;
+        .login-bar {
+            height: 30px;
+        }
     }
     .menu-bar { 
         border-bottom: 5px solid $outer-main;
@@ -90,6 +93,29 @@
                 }
                 a:focus {
                     text-decoration: none;
+                }
+            }
+        }
+    }
+    #loginform {
+        .modal-content {
+            width:400px;
+            .modal-title {
+                text-align: center;
+                color: $outer-main;
+                font-size: 24px;
+            }
+            .modal-body {
+                text-align: center;
+                .login {
+                    width: 300px;
+                }
+                .input-group {
+                    padding: 20px 0;
+                }
+                .form-control {
+                    width:300px;
+                    margin-top: 1px;
                 }
             }
         }

@@ -14,5 +14,12 @@ class IndexController extends Controller
     {
         return view('admin.home');
     }
+
+    public function upload(Request $request)
+    {
+        $path = $request->file('editorfile')->store('uploads/'.date('Ym'));
+        echo  '/storage/' . $path;exit;
+        //  return response()->json($img);
+    }
     
 }
