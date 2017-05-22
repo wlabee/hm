@@ -70,7 +70,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('user/update', ['as' => 'admin.user.edit', 'uses' => 'UserController@update']); //修改
     // Route::post('user/index', ['as' => 'admin.user.index', 'uses' => 'UserController@index']);
     Route::post('user/store', ['as' => 'admin.user.create', 'uses' => 'UserController@store']); //添加
-
     Route::get('user/manage', ['as' => 'admin.user.manage', 'uses' => 'UserController@index']);  //用户管理
 
 ////////
@@ -89,6 +88,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('slider/store', ['as' => 'admin.slider.create', 'uses' => 'SliderController@store']); //添加
 
     //category配置管理路由
+    Route::get('category/{pid}/create', ['as' => 'admin.category.create', 'uses' => 'CategoryController@create']);
+    Route::get('category/{pid?}', ['as' => 'admin.category.index', 'uses' => 'CategoryController@index']);
     Route::match(['get', 'post'], 'category/index', ['as' => 'admin.category.index', 'uses' => 'CategoryController@index']);
     Route::resource('category', 'CategoryController', ['names' => 
         [

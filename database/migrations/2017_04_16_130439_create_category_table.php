@@ -18,7 +18,7 @@ class CreateCategoryTable extends Migration
             $table->increments('id');
             $table->string('cat_name');
             $table->integer('pid')->default(0);
-            $table->steing('picture')->default('');
+            $table->string('picture')->default('');
             $table->integer('sort')->default(0);
         });
     }

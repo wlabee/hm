@@ -16,7 +16,7 @@
 
                             @include('admin.partials.errors')
                             @include('admin.partials.success')
-                            <form class="form-horizontal" role="form" method="POST"
+                            <form class="form-horizontal" enctype="multipart/form-data"  role="form" method="POST"
                                   action="/admin/category/{{ $id }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="_method" value="PUT">

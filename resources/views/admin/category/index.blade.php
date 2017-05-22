@@ -5,9 +5,18 @@
 @section('content')
             <div class="row page-title-row" style="margin:5px;">
                 <div class="col-md-6">
+                @if($pid==0)
+                    <span style="margin:3px;" id="pid" attr="{{$pid}}" class="btn-flat text-info"> 顶级分类</span>
+                @else
+                    <span style="margin:3px;" id="pid"  attr="{{$pid}}" class="text-info"> {{$data->cat_name}}
+                    </span>
+                    <a style="margin:3px;"  href="/admin/category"
+                            class="btn btn-warning btn-md animation-shake reloadBtn"><i class="fa fa-mail-reply-all"></i> 返回顶级分类
+                    </a>
+                @endif
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="/admin/category/create" class="btn btn-success btn-md">
+                    <a href="/admin/category/{{$pid}}/create" class="btn btn-success btn-md">
                         <i class="fa fa-plus-circle"></i> 添加分类
                     </a>
                 </div>
@@ -74,6 +83,7 @@
 @section('js')
     <script>
         $(function () {
+            var pid=$('#pid').attr('attr');
             var table = $("#tags-table").DataTable({
                 language: {
                     "sProcessing": "处理中...",
@@ -104,6 +114,9 @@
                 ajax: {
                     url: '/admin/category/index',
                     type: 'POST',
+                    data: function (d) {
+                        d.pid = pid;
+                    },
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -117,7 +130,11 @@
                 columnDefs: [
                     {
                         'targets': -1, "render": function (data, type, row) {
-                        return '<a style="margin:3px;" href="/admin/category/' + row['id'] + '/edit" class="X-Small btn-xs text-success"><i class="fa fa-edit"></i> 编辑</a><a style="margin:3px;" href="#" attr="' + row['id'] + '" class="delBtn X-Small btn-xs text-danger"><i class="fa fa-times-circle"></i> 删除</a>';
+                            var strop = '';
+                            if (row['pid'] == 0) {
+                                strop = '<a style="margin:3px;"  href="/admin/category/' + row['id'] + '" class="X-Small btn-xs text-success "><i class="fa fa-adn"></i>下级菜单</a>';
+                            }
+                        return strop + '<a style="margin:3px;" href="/admin/category/' + row['id'] + '/edit" class="X-Small btn-xs text-success"><i class="fa fa-edit"></i> 编辑</a><a style="margin:3px;" href="#" attr="' + row['id'] + '" class="delBtn X-Small btn-xs text-danger"><i class="fa fa-times-circle"></i> 删除</a>';
                         }
                     }
                 ]
