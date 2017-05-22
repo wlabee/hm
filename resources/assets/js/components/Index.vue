@@ -1,26 +1,31 @@
 <template>
-    <div class="wrapper">
-        <div class="content-wrapper">
+    <el-row>
+        <el-col :span="24">
             <el-carousel indicator-position="outside">
                 <el-carousel-item v-for="item in 4" :key="item">
                 <h3>{{ item }}</h3>
                 </el-carousel-item>
             </el-carousel>
-            <section class="content">
-                <router-view></router-view>
-                <!-- Your Page Content Here -->
-            </section>
-            <!-- /.content -->
-        </div>
-    </div>
+        </el-col>
+        <el-row class="top-bar">
+            <el-col :span="4">
+            &nbsp;
+            </el-col>
+            <el-col :span="16">
+                <listOne></listOne>
+            </el-col>
+        </el-row>
+    </el-row>
 </template>
 <script>
+import listOne from './listview/one'
     export default {
         data() {
           return {
             saybye: 'good bye'
           }
-        }
+        },
+        components: {listOne}
     }
 </script>
 <style>
