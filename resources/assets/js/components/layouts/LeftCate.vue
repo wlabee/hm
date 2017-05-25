@@ -1,5 +1,5 @@
 <template>
-    <div class="left-cate bg-mtop">
+    <div class="left-cate cate-tt1" :class="showcate">
         <ul>
             <li>小编精选</li>
             <li>厨房用品</li>
@@ -9,11 +9,26 @@
         </ul>
     </div>
 </template>
+<script>
+    export default{
+        data() {
+            return {
+                cateNormal: true,
+                cateIndex: false
+            }
+        },
+        computed: {
+            showcate: function () {
+                return this.$store.state.cateStyle
+            }
+        }
+    }
+</script>
 <style>
     .left-cate {
         position: absolute;
-        top: 500px;
         right: 85%;
+        z-index: 9999;
     }
     .left-cate ul {
         padding-left: 0px;
@@ -30,8 +45,5 @@
         border-bottom: 1px solid #afafaf;
         width: 100%;
         text-align: center;
-    }
-    .bg-mtop {
-        background: url(/images/hm_tt1.png) no-repeat 80px 5px;
     }
 </style>

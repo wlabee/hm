@@ -5,6 +5,8 @@ import Index from './components/Index.vue'
 import Parent from './components/layouts/Parent.vue'
 import App from './components/App.vue'
 
+import Selection from './components/Selection.vue'
+
 export default [
     {
         path: '/',
@@ -29,6 +31,11 @@ export default [
             //     component: require('./components/login.vue')
             // }
         ]
+    },
+    {
+        path: '/selection',
+        name: '小编精选',
+        component: Selection
     }
 ]
 

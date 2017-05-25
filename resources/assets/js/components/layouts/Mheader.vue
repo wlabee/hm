@@ -52,9 +52,9 @@
                     </el-col>
                     <el-col>
                         <div class="grid-content menu-main">
-                            <el-menu :default-active="activeIndex" mode="horizontal">
-                                <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
-                                <el-menu-item index="2"> <router-link to="/test/index">小编精选</router-link></el-menu-item>
+                            <el-menu :default-active="activeIndex" mode="horizontal" @select="changePath">
+                                <el-menu-item index="index"><router-link to="/">首页</router-link></el-menu-item>
+                                <el-menu-item index="selection"><router-link to="/selection">小编精选</router-link></el-menu-item>
                             </el-menu>
                         </div>
                     </el-col>
@@ -67,18 +67,43 @@
     export default{
         data() {
             return {
-                activeIndex: '1',
+                activeIndex: this.$store.state.menuSelc,
                 inputSearch: '',
                 labelPosition: 'right',
                 formLabelAlign: {
                     name: '',
                     password: ''
-                }
+                },
+                router: true
             }
+        },
+        watch: {
+            // 如果路由有变化，会再次执行该方法
+            '$route': 'fetchPath'
         },
         methods: {
             handleIconClick(ev) {
-            console.log(ev);
+                console.log(ev);
+            },
+            changePath(key, path) {
+                this.$store.dispatch('menuNav', key)
+                if (key == 'index') {
+                    this.$store.dispatch('upStyle', 'cate-index')
+                } else {
+                    this.$store.dispatch('upStyle', 'cate-normal')
+                }
+            },
+            fetchPath() {
+                var pathStr = this.$route.path + '/';
+                var patrn= new RegExp('\/(.*?)\/');
+                var arr = patrn.exec(pathStr)
+                if (arr[1] == 'index') {
+                    this.$store.dispatch('menuNav', 'index')
+                    this.$store.dispatch('upStyle', 'cate-index')
+                } else {
+                    this.$store.dispatch('menuNav', arr[1])
+                    this.$store.dispatch('upStyle', 'cate-normal')
+                }
             }
         }
     }

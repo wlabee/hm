@@ -22,8 +22,13 @@ import listOne from './listview/one'
     export default {
         data() {
           return {
-            saybye: 'good bye'
+            saybye: 'good bye',
+            cateIndex: true,
+            cateNormal: false
           }
+        },
+        mounted: function () {
+            this.$store.dispatch('upStyle', 'cate-index')
         },
         components: {listOne}
     }
@@ -43,5 +48,6 @@ import listOne from './listview/one'
   
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
+    background: url(/images/demo/111.png) no-repeat center center;
   }
 </style>
