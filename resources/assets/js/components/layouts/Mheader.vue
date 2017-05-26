@@ -52,7 +52,7 @@
                     </el-col>
                     <el-col>
                         <div class="grid-content menu-main">
-                            <el-menu :default-active="activeIndex" mode="horizontal" @select="changePath">
+                            <el-menu :default-active="activeIndex" mode="horizontal">
                                 <el-menu-item index="index"><router-link to="/">首页</router-link></el-menu-item>
                                 <el-menu-item index="selection"><router-link to="/selection">小编精选</router-link></el-menu-item>
                             </el-menu>
@@ -77,33 +77,9 @@
                 router: true
             }
         },
-        watch: {
-            // 如果路由有变化，会再次执行该方法
-            '$route': 'fetchPath'
-        },
         methods: {
             handleIconClick(ev) {
                 console.log(ev);
-            },
-            changePath(key, path) {
-                this.$store.dispatch('menuNav', key)
-                if (key == 'index') {
-                    this.$store.dispatch('upStyle', 'cate-index')
-                } else {
-                    this.$store.dispatch('upStyle', 'cate-normal')
-                }
-            },
-            fetchPath() {
-                var pathStr = this.$route.path + '/';
-                var patrn= new RegExp('\/(.*?)\/');
-                var arr = patrn.exec(pathStr)
-                if (arr[1] == 'index') {
-                    this.$store.dispatch('menuNav', 'index')
-                    this.$store.dispatch('upStyle', 'cate-index')
-                } else {
-                    this.$store.dispatch('menuNav', arr[1])
-                    this.$store.dispatch('upStyle', 'cate-normal')
-                }
             }
         }
     }

@@ -21,6 +21,12 @@
             showcate: function () {
                 return this.$store.state.cateStyle
             }
+        },
+         beforeCreate: function(){console.log('xxxx')},
+        created: function(){console.log('yyyy')},
+        mounted:function(){console.log('oooo')},
+        beforeMount: function () {
+            console.log('zzzz')
         }
     }
 </script>
