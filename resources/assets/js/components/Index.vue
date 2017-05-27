@@ -24,7 +24,8 @@ import listOne from './listview/one'
           return {
             saybye: 'good bye',
             cateIndex: true,
-            cateNormal: false
+            cateNormal: false,
+            testxx: false
           }
         },
         mounted: function () {
