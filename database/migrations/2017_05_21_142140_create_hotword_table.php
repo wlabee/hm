@@ -29,6 +29,6 @@ class CreateHotwordTable extends Migration
     public function down()
     {
         //
-        Schema::droptIfExits('hotword');
+        Schema::dropIfExists('hotword');
     }
 }
