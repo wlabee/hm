@@ -182,6 +182,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
 
     ],
 

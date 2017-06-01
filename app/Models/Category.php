@@ -6,6 +6,4 @@ class Category extends Model
 {
 
     protected $table = 'category';
-
-    public $timestamps = false;
 }

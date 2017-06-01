@@ -22,6 +22,7 @@ class CreateSliderTable extends Migration
             $table->dateTime('end_time');
             $table->boolean('is_delete')->default(0);
             $table->integer('sort');
+            $table->timestamps();
             
             $table->index('sort');
         });

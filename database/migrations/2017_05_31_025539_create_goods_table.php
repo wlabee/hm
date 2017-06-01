@@ -16,10 +16,10 @@ class CreateGoodsTable extends Migration
       Schema::create('goods', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title')->default('');
-            $table->integer('column')->default(0);
-            $table->integer('cat1id')->default(0);
+            $table->integer('column')->default(0)->index();
+            $table->integer('cat1id')->default(0)->index();
             $table->string('cat1name')->default('');
-            $table->integer('cat2id')->default(0);
+            $table->integer('cat2id')->default(0)->index();
             $table->string('cat2name')->default('');
             $table->string('image_page')->default('');
             $table->jsonb('images');

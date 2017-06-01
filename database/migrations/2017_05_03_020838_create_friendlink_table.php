@@ -18,6 +18,7 @@ class CreateFriendlinkTable extends Migration
             $table->string('link_name');
             $table->string('link_url');
             $table->integer('sort')->default(0);
+            $table->timestamps();
         });
     }
 
