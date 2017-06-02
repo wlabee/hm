@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FriendLink;
+use App\Models\jdproduct;
 
 class FriendLinkController extends Controller
 {

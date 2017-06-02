@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    use HasApiTokens;
     /**
      * Create a new controller instance.
      *

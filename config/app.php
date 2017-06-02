@@ -183,6 +183,8 @@ return [
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
 
     ],
 
@@ -237,6 +239,7 @@ return [
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Moloquent'       => Jenssegers\Mongodb\Eloquent\Model::class,
     ],
 
 ];
