@@ -27,8 +27,18 @@ class CategoryController extends Controller
         return response()->json([]);
     }
 
-    public function getList() {
+    public function getMainList() {
         $data = Category::where('pid', 0)->orderBy('sort', 'asc')->get();
-        return response()->json($data);
+        return $this->ajax_succ($data);
+    }
+
+    public function getSubList($pid) {
+        $pid = (int)$pid;
+        if (! $pid) {
+            return $this->ajax_faild('无效id');
+        }
+        $data = Category::where('pid', $pid)->orderBy('sort', 'asc')->get();
+
+        return $this->ajax_succ($data);
     }
 }

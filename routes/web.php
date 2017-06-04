@@ -17,5 +17,3 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/get/category', 'CategoryController@getList');
-Route::get('/get/friendlink', 'FriendLinkController@getList');

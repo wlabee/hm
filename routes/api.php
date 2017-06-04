@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'api', 'namespace' => 'Api', 'middleware' => ['auth:api']], function () {
+    Route::get('/get/category', 'HomeController@getCate');
+    Route::get('/get/category/{pid}', 'HomeController@getSubCate');
+    Route::get('/get/friendlink', 'HomeController@getFriendLink');
+    Route::get('/get/hotword', 'HomeController@getHotWord');
+});

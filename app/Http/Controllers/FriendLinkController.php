@@ -30,6 +30,6 @@ class FriendLinkController extends Controller
 
     public function getList() {
         $data = FriendLink::orderBy('sort', 'asc')->get();
-        return response()->json($data);
+        return $this->ajax_succ($data);
     }
 }
