@@ -9,3 +9,7 @@ export const upChoice = (state, toChoice) => {
 export const menuNav = (state, path) => {
     return state.menuSelc = path
 }
+
+export const upCate = (state, cate) => {
+    return state.cateIndex = cate
+}

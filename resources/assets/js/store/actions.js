@@ -7,3 +7,6 @@ export const upChoice = ({ commit }, toChoice) => {
 export const menuNav = ({ commit }, path) => {
   commit('menuNav', path)
 }
+export const upCate = ({ commit }, cate) => {
+  commit('upCate', cate)
+}

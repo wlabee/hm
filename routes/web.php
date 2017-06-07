@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('web');
 });
-
+Route::get('/selection', function () {return view('web');});
+Route::get('/hearsay', function () {return view('web');});
+Route::get('/promotion', function () {return view('web');});
+Route::get('/lowprice', function () {return view('web');});
+Route::get('/cate/{id}', function () {return view('web');});
 Auth::routes();
 

@@ -22,26 +22,38 @@ import leftcate from './layouts/LeftCate'
             // 如果路由有变化，会再次执行该方法
             '$route': 'fetchPath'
         },
-        beforeCreate: function(){console.log('aaaa')},
-        created: function(){console.log('bbb')},
-        mounted:function(){console.log('dddd')},
+        beforeCreate: function(){},
+        created: function(){},
+        mounted:function(){},
         beforeMount: function () {
-            console.log('cccc')
             this.fetchPath()
         },
         methods: {
             fetchPath() {
                 var pathStr = this.$route.path + '/';
-                var patrn= new RegExp('\/(.*?)\/');
+                var patrn = new RegExp('\/(.*?)\/');
                 var arr = patrn.exec(pathStr)
                 console.log(arr)
+                var cate_index = 0;
                 if (arr[1] == '') {
                     this.$store.dispatch('menuNav', 'index')
                     this.$store.dispatch('upStyle', 'cate-index')
                 } else {
-                    this.$store.dispatch('menuNav', arr[1])
+                    if (_.indexOf(['index', 'selection', 'hearsay', 'promotion', 'lowprice'], arr[1]) >= 0) {
+                        this.$store.dispatch('menuNav', arr[1])
+                    }
+
                     this.$store.dispatch('upStyle', 'cate-normal')
+                    if (arr[1] == 'cate') {
+                        this.$store.dispatch('menuNav', '')
+                        var patrn2 = new RegExp('\/cate\/(.*?)\/')
+                        var arr2 = patrn2.exec(pathStr)
+                        if (arr2[1]) {
+                            cate_index = arr2[1];
+                        }
+                    }
                 }
+                this.$store.dispatch('upCate', cate_index)
             }
         }
     }

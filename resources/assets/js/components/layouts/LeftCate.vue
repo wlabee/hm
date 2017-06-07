@@ -1,11 +1,9 @@
 <template>
-    <div class="left-cate cate-tt1" :class="showcate">
+    <div class="left-cate" :class="[showcate,catett]">
         <ul>
-            <li>小编精选</li>
-            <li>厨房用品</li>
-            <li>户外工具</li>
-            <li>卧室睡眠</li>
-            <li>步行运动</li>
+            <li v-for="(item, index) in items" :class="catestyle(item.id)">
+                <router-link :to="{path: '/cate/' + item.id}">{{ item.cat_name }}</router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -14,19 +12,49 @@
         data() {
             return {
                 cateNormal: true,
-                cateIndex: false
+                cateIndex: false,
+                items: [
+                    {
+                        id: 1,
+                        cat_name: '小编精选'
+                    },
+                    {
+                        id: 2,
+                        cat_name: '厨房用品'
+                    },
+                    {
+                        id: 3,
+                        cat_name: '户外工具'
+                    },
+                    {
+                        id: 4,
+                        cat_name: '卧室睡眠'
+                    },
+                    {
+                        id: 5,
+                        cat_name: '步行运动'
+                    }
+                ]
             }
         },
         computed: {
             showcate: function () {
                 return this.$store.state.cateStyle
+            },
+            catett: function () {
+                if (this.$store.state.cateIndex == 0) {
+                    return 'cate-tt1';
+                }
+                return '';
             }
         },
-         beforeCreate: function(){console.log('xxxx')},
-        created: function(){console.log('yyyy')},
-        mounted:function(){console.log('oooo')},
-        beforeMount: function () {
-            console.log('zzzz')
+        methods:{
+            catestyle: function(id) {
+                console.log(this.$store.state.cateIndex)
+                if (this.$store.state.cateIndex == id) {
+                    return 'on-active';
+                }
+            }
         }
     }
 </script>
@@ -51,5 +79,9 @@
         border-bottom: 1px solid #afafaf;
         width: 100%;
         text-align: center;
+    }
+    .left-cate li.on-active {
+        background-color: #fd9e65;
+        background: url(/images/hm_tt2.png) no-repeat -44px;
     }
 </style>

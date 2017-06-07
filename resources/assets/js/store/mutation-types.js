@@ -1,0 +1,3 @@
+
+
+export const ADAPT_PRODUCTS_LIST = 'ADAPT_PRODUCTS_LIST'

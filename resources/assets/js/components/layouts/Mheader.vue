@@ -37,7 +37,7 @@
         <el-row class="menu-bar">
             <el-col :span="16" :offset="4">
                 <el-col :span="4" class="logo">
-                    <img src="images/hm_logo.png" alt="慧买">
+                    <img src="/images/hm_logo.png" alt="慧买">
                 </el-col>
                 <el-col :span="20">
                     <el-col>
@@ -55,6 +55,9 @@
                             <el-menu :default-active="activeIndex" mode="horizontal">
                                 <el-menu-item index="index"><router-link to="/">首页</router-link></el-menu-item>
                                 <el-menu-item index="selection"><router-link to="/selection">小编精选</router-link></el-menu-item>
+                                <el-menu-item index="hearsay"><router-link to="/hearsay">小道消息</router-link></el-menu-item>
+                                <el-menu-item index="promotion"><router-link to="/promotion">促销精选</router-link></el-menu-item>
+                                <el-menu-item index="lowprice"><router-link to="/lowprice">神价屋</router-link></el-menu-item>
                             </el-menu>
                         </div>
                     </el-col>

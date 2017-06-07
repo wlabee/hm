@@ -33,6 +33,7 @@ Vue.use(VueResource)
 
 var router = new VueRouter({
     history: true,
+    mode: 'history',
     routes: routes
 })
 
