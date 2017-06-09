@@ -128,4 +128,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('hotword/update', ['as' => 'admin.hotword.edit', 'uses' => 'HotwordController@update']); //修改
     Route::post('hotword/store', ['as' => 'admin.hotword.create', 'uses' => 'HotwordController@store']); //添加
 
+    //topic配置管理路由
+    Route::match(['get', 'post'], 'topic/index', ['as' => 'admin.topic.index', 'uses' => 'TopicController@index']);
+    Route::resource('topic', 'TopicController', ['names' => 
+        [
+            'create'    => 'admin.topic.create',
+            'index'     => 'admin.topic.index',
+            'edit'      => 'admin.topic.edit',
+            'destroy'   => 'admin.topic.destroy'
+        ]
+    ]);
+    Route::post('topic/update', ['as' => 'admin.topic.edit', 'uses' => 'TopicController@update']); //修改
+    Route::post('topic/store', ['as' => 'admin.topic.create', 'uses' => 'TopicController@store']); //添加
+
 });
