@@ -17,7 +17,7 @@
 <style lang="scss">
     .sub-cate {
         .el-col {
-            margin: 15px 0;
+            margin: 10px 0;
         }
     }
 </style>

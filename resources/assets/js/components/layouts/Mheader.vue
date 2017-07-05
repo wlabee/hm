@@ -4,7 +4,7 @@
             <el-col :span="16" :offset="4">
                 <div class="login-bar">
                     <span>
-                        <a data-toggle="modal" data-target="#loginform" title="登录">登录</a> | 注册
+                        <a data-toggle="modal" data-target="#loginform" title="登录">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a title="注册">注册</a>
                      </span>
                 </div>
                 <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

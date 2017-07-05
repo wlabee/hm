@@ -1,16 +1,11 @@
-
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables-front";
-
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
 // element-ui
 //@import "node_modules/element-ui/lib/theme-default";
-
 .mheader {
     .top-bar {
         background-color: $outer-bg;
@@ -18,9 +13,20 @@
         text-align: right;
         .login-bar {
             height: 30px;
+            a {
+                color: #afafaf;
+                 :hover,
+                 :focus {
+                    color: $outer-main;
+                }
+                 :active,
+                 :visited {
+                    color: #afafaf;
+                }
+            }
         }
     }
-    .menu-bar { 
+    .menu-bar {
         border-bottom: 5px solid $outer-main;
         height: 135px;
         .logo {
@@ -42,7 +48,7 @@
             }
             .el-input__icon {
                 color: #fff;
-                background-color: $outer-main; 
+                background-color: $outer-main;
                 border-radius: 4px;
                 width: 60px;
                 font-size: 22px;
@@ -79,9 +85,9 @@
                 }
                 .el-menu-item.is-active {
                     background-image: url('../images/hm_active.png');
-                    background-repeat:no-repeat;
-                    background-position:top right;
-                    padding:0px 15px;
+                    background-repeat: no-repeat;
+                    background-position: top right;
+                    padding: 0px 15px;
                     a {
                         background-color: $outer-main;
                         color: #fff;
@@ -99,7 +105,7 @@
     }
     #loginform {
         .modal-content {
-            width:400px;
+            width: 400px;
             .modal-title {
                 text-align: center;
                 color: $outer-main;
@@ -115,19 +121,22 @@
                     padding: 20px 0;
                 }
                 .form-control {
-                    width:300px;
+                    width: 300px;
                     margin-top: 1px;
                 }
             }
         }
     }
 }
+
 .cate-index {
     top: 430px;
 }
+
 .cate-normal {
     top: 170px;
 }
+
 .cate-tt1 {
     background: url(/images/hm_tt1.png) no-repeat 80px 5px;
 }

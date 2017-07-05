@@ -1,3 +1,3 @@
-
-
 export const ADAPT_PRODUCTS_LIST = 'ADAPT_PRODUCTS_LIST'
+
+export const BREAD_NAV_LIST = 'BREAD_NAV_LIST'
